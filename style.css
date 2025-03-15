@@ -117,4 +117,11 @@ body.bg-high-wealth {
 body.bg-high-wealthe {
     background-color: #ffbb00;
 }
+html, body {
+    touch-action: none;  /* Désactive le zoom au toucher */
+    -ms-touch-action: none;  /* Compatibilité pour les anciens navigateurs */
+}
 
+body {
+    overflow: hidden;  /* Empêche le défilement pour un zoom total */
+}
