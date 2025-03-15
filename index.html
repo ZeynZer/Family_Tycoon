@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Tycoon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="info">
+                        <!-- Ajouter ce bouton sous le prix de la roue -->
+            <div class="info-box">
+                <button id="reset-btn">Réinitialiser la progression</button>
+            </div>
+
+            <div class="info-box">
+                <p id="argent-text">Argent : <span id="argent">0</span> €</p>
+                <p id="gain-text">Gain par clic : <span id="gain-par-clic">1</span> €</p>
+            </div>
+
+            <div class="info-box">
+                <p id="upgrade-price-text">Prix d'amélioration : <span id="upgrade-price">10</span> €</p>
+                <button id="upgrade-btn" class="disabled">Améliorer compétence (+1 €/clic)</button>
+            </div>
+            <div class="info-box">
+                <p id="wheel-price-text">Prix de la roue : <span id="wheel-price">1000</span> €</p>
+                <button id="wheel-btn" class="disabled">Lancer la roue</button>
+                <p id="message"></p> <!-- Affichage du message après le lancement de la roue -->
+            </div>
+        </div>
+        
+        <div id="click-area">
+            <button id="click-btn">Cliquez ici pour gagner de l'argent</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
