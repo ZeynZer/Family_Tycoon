@@ -8,39 +8,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
+    <!-- Conteneur principal du jeu -->
     <div id="game-container">
+        
+        <!-- Informations sur le jeu -->
         <div id="info">
-                        <!-- Ajouter ce bouton sous le prix de la roue -->
+            
+            <!-- Bouton pour réinitialiser la progression -->
             <div class="info-box">
                 <button id="reset-btn">Réinitialiser la progression</button>
             </div>
 
+            <!-- Affichage de l'argent et du gain par clic -->
             <div class="info-box">
                 <p id="argent-text">Argent : <span id="argent">0</span> €</p>
                 <p id="gain-text">Gain par clic : <span id="gain-par-clic">1</span> €</p>
             </div>
 
+            <!-- Affichage du prix de l'amélioration et bouton d'amélioration -->
             <div class="info-box">
                 <p id="upgrade-price-text">Prix d'amélioration : <span id="upgrade-price">10</span> €</p>
                 <button id="upgrade-btn" class="disabled">Améliorer compétence (+1 €/clic)</button>
             </div>
-            <div class="info-box">
-                <p>Prix du revenu passif : <span id="auto-income-price">50</span> €</p>
-                <button id="auto-income-btn" class="disabled">Acheter un revenu passif (+1 €/seconde)</button>
-            </div>
 
+            <!-- Affichage du prix de la roue et bouton pour lancer la roue -->
             <div class="info-box">
                 <p id="wheel-price-text">Prix de la roue : <span id="wheel-price">1000</span> €</p>
                 <button id="wheel-btn" class="disabled">Lancer la roue</button>
                 <p id="message"></p> <!-- Affichage du message après le lancement de la roue -->
             </div>
+
         </div>
         
+        <!-- Zone de clic pour gagner de l'argent -->
         <div id="click-area">
             <button id="click-btn">Cliquez ici pour gagner de l'argent</button>
         </div>
+        
     </div>
 
+    <!-- Lien vers le fichier JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
