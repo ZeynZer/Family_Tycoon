@@ -12,9 +12,10 @@ body {
     height: 100vh;
     background-color: #f4f4f9;
     color: #333;
-    overflow: hidden;  /* Empêche le défilement */
+    overflow: hidden;  /* Empêche le défilement de la page */
 }
 
+/* Container de jeu centré */
 #game-container {
     text-align: center;
     background-color: #ffffff;
@@ -23,27 +24,33 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 100%;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Information générale */
 #info {
     margin-bottom: 30px;
 }
 
+/* Boîtes d'information */
 .info-box {
     margin: 15px 0;
-    padding: 15px;
+    padding: 10px;
     background-color: #f1f1f1;
     border-radius: 10px;
-    text-align: left;
+    width: 100%;
 }
 
-.info-box p {
-    font-size: 18px;
+/* Style des textes */
+#argent-text, #gain-text, #upgrade-price-text, #wheel-price-text {
+    font-size: 20px;
     margin: 10px 0;
     font-weight: bold;
 }
 
+/* Boutons */
 button {
     padding: 15px 30px;
     font-size: 18px;
@@ -54,16 +61,18 @@ button {
     transition: background-color 0.3s, transform 0.3s;
 }
 
+/* Bouton principal (click) */
 #click-btn {
     font-size: 22px;
     background-color: #4CAF50;
     color: white;
-    width: 100%;
+    width: 100%;  /* Prend toute la largeur disponible */
+    height: 100%;  /* Prend toute la hauteur disponible */
     margin-top: 20px;
-    height: 50px;
     box-sizing: border-box;
 }
 
+/* État hover des boutons */
 button:hover {
     transform: scale(1.05);
 }
@@ -72,17 +81,13 @@ button:active {
     transform: scale(1);
 }
 
-#reset-btn {
-    background-color: #f44336;  /* Rouge pour la réinitialisation */
-    color: white;
-}
-
+/* Styles des boutons d'amélioration */
 #upgrade-btn {
-    background-color: #f44336;  /* Rouge par défaut */
+    background-color: #f44336; /* Rouge par défaut */
 }
 
 #upgrade-btn.enabled {
-    background-color: #4CAF50;  /* Vert lorsque l'amélioration est possible */
+    background-color: #4CAF50; /* Vert lorsque l'amélioration est possible */
 }
 
 #upgrade-btn.disabled {
@@ -90,6 +95,7 @@ button:active {
     cursor: not-allowed;
 }
 
+/* Styles des boutons de roue */
 #wheel-btn {
     background-color: #f39c12;
 }
@@ -103,61 +109,46 @@ button:active {
     cursor: not-allowed;
 }
 
+/* Hover des boutons */
 #click-btn:hover {
     background-color: #45a049;
 }
 
+/* Boutons désactivés */
 button:disabled {
     opacity: 0.5;
 }
 
-/* Message affiché après le lancement de la roue */
+/* Message après lancement de la roue */
 #message {
     font-size: 20px;
     font-weight: bold;
     color: #2ecc71;
     margin-top: 20px;
 }
+#auto-gain-box {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
-#argent-text, #gain-text, #upgrade-price-text, #wheel-price-text {
-    font-size: 20px;
-    margin: 10px 0;
+#auto-gain-btn {
+    padding: 15px 30px;
+    font-size: 18px;
     font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-body.bg-high-wealth {
-    background-color: #2c2c2c;
+#auto-gain-btn:hover {
+    background-color: #2980b9;
 }
 
-body.bg-high-wealthe {
-    background-color: #ffbb00;
-}
-
-html, body {
-    touch-action: none;  /* Désactive le zoom au toucher */
-    -ms-touch-action: none;  /* Compatibilité pour les anciens navigateurs */
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
-    #game-container {
-        padding: 20px;
-    }
-
-    .info-box {
-        padding: 10px;
-    }
-
-    button {
-        padding: 12px 24px;
-        font-size: 16px;
-    }
-
-    #click-btn {
-        font-size: 18px;
-    }
-
-    #message {
-        font-size: 18px;
-    }
+button:disabled {
+    opacity: 0.5;
 }
