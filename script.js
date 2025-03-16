@@ -4,6 +4,7 @@ let gainParClic = parseInt(localStorage.getItem('gainParClic')) || 1;
 let upgradePrice = parseInt(localStorage.getItem('upgradePrice')) || 10;
 let wheelPrice = parseInt(localStorage.getItem('wheelPrice')) || 1000;
 
+
 // Fonction pour mettre à jour l'affichage des informations
 function updateDisplay() {
     document.getElementById('argent').innerText = argent;
