@@ -179,8 +179,17 @@ function resetProgress() {
     }
 }
 
+
 setInterval(gainAutomatique, 1000);
 document.getElementById('auto-income-btn').addEventListener('click', acheterRevenuPassif);
+
+document.getElementById("upgrade-menu-btn").addEventListener("click", function() {
+    document.getElementById("upgrade-menu").classList.add("visible");
+});
+
+document.getElementById("close-menu").addEventListener("click", function() {
+    document.getElementById("upgrade-menu").classList.remove("visible");
+});
 
 // Ajouter un événement pour le bouton de réinitialisation
 document.getElementById('reset-btn').addEventListener('click', resetProgress);
