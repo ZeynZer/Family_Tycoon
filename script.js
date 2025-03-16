@@ -3,6 +3,15 @@ let argent = parseInt(localStorage.getItem('argent')) || 0;
 let gainParClic = parseInt(localStorage.getItem('gainParClic')) || 1;
 let upgradePrice = parseInt(localStorage.getItem('upgradePrice')) || 10;
 let wheelPrice = parseInt(localStorage.getItem('wheelPrice')) || 1000;
+let gainAuto = parseInt(localStorage.getItem('gainAuto')) || 0;
+let autoIncomePrice = parseInt(localStorage.getItem('autoIncomePrice')) || 50;
+
+
+function gainAutomatique() {
+    argent += gainAuto; // Ajoute le gain automatique chaque seconde
+    localStorage.setItem('argent', argent); // Sauvegarde l'argent
+    updateDisplay(); // Met à jour l'affichage
+}
 
 // Fonction pour mettre à jour l'affichage des informations
 function updateDisplay() {
@@ -11,6 +20,17 @@ function updateDisplay() {
     document.getElementById('gain-par-clic').innerText = gainParClic;
     document.getElementById('upgrade-price').innerText = upgradePrice;
     document.getElementById('wheel-price').innerText = wheelPrice;
+    document.getElementById('auto-income-price').innerText = autoIncomePrice;
+
+    const autoIncomeBtn = document.getElementById('auto-income-btn');
+    if (argent >= autoIncomePrice) {
+        autoIncomeBtn.classList.remove('disabled');
+        autoIncomeBtn.classList.add('enabled');
+    } else {
+        autoIncomeBtn.classList.remove('enabled');
+        autoIncomeBtn.classList.add('disabled');
+    }
+
 
     // Mise à jour de l'état du bouton d'amélioration
     const upgradeBtn = document.getElementById('upgrade-btn');
@@ -42,6 +62,24 @@ function updateDisplay() {
         document.body.classList.remove('bg-high-wealthe');
     }
 }
+
+function acheterRevenuPassif() {
+    if (argent >= autoIncomePrice) {
+        argent -= autoIncomePrice; // Déduire l'argent
+        gainAuto++; // Augmenter le gain automatique
+        autoIncomePrice = Math.floor(autoIncomePrice * 1.5); // Augmenter le prix
+
+        // Sauvegarde
+        localStorage.setItem('argent', argent);
+        localStorage.setItem('gainAuto', gainAuto);
+        localStorage.setItem('autoIncomePrice', autoIncomePrice);
+
+        updateDisplay(); // Mettre à jour l'affichage
+    } else {
+        alert("Vous n'avez pas assez d'argent pour acheter un revenu passif !");
+    }
+}
+
 
 // Fonction de clic (ajouter de l'argent)
 function clickAction() {
@@ -140,6 +178,9 @@ function resetProgress() {
         updateDisplay(); // Mettre à jour l'affichage
     }
 }
+
+setInterval(gainAutomatique, 1000);
+document.getElementById('auto-income-btn').addEventListener('click', acheterRevenuPassif);
 
 // Ajouter un événement pour le bouton de réinitialisation
 document.getElementById('reset-btn').addEventListener('click', resetProgress);
