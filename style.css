@@ -138,6 +138,20 @@ body {
     cursor: pointer;
 }
 
+/* Style du bouton d'ouverture du menu */
+#upgrade-menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
 /* Style du menu d'amélioration */
 #upgrade-menu {
     position: fixed;
@@ -170,3 +184,12 @@ body {
     display: block;
 }
 
+/* Bouton d'amélioration actif/inactif */
+#upgrade-btn.enabled {
+    background-color: #4CAF50;
+}
+
+#upgrade-btn.disabled {
+    background-color: #f44336;
+    cursor: not-allowed;
+}
